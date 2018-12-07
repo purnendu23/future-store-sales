@@ -38,4 +38,5 @@ data/
 help/
 submissions/
 word2vec
-
+word2vec/*
+data/*
