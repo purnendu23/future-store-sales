@@ -1,0 +1,30 @@
+city,city_eng,time_wrt_utc,fed_subject,fed_dist,dist_from_moscow
+Москва,Moscow,3,Federal City,Central,1
+Химки,Khimki,3,Moscow Oblast,Central,21
+Балашиха,Balashiha,3,Moscow Oblast,Central,26
+Мытищи,Mytishchi,3,Moscow Oblast,Central,31
+Жуковский,Zhukovsky,3,Moscow Oblast,Central,41
+Чехов,Chekhov,3,Moscow Oblast,Central,74
+Сергиев,Sergiev Posad,3,Moscow Oblast,Central,75
+Коломна,Kolomna,3,Moscow Oblast,Central,113
+Калуга,Kaluga,3,Kaluga Oblast,Central,181
+Ярославль,Yaroslavl,3,Yaroslavl Oblast,Central,264
+Н.Новгород,N.Novgorod,3,Nizhny Novgorod Oblast,Volga,417
+Вологда,Vologda,3,Vologda Oblast,Northwest,466
+Воронеж,Voronezh,3,Voronezh Oblast,Central,524
+Курск,Kursk,3,Kaluga Oblast,Central,534
+СПб,St. Petersburg,3,Federal City,Northwest,709
+Казань,Kazan,3,Tatarstan Republic,Volga,816
+Волжский,Volzhsky,3,Volgograd Oblast,South,993
+Самара,Samara,4,Samara Oblast,Volga,1058
+РостовНаДону,RostovNaDonu,3,Rostov Oblast,South,1076
+Уфа,Ufa,5,Bashkortostan Republic,Volga,1351
+Адыгея,Adygea,3,Adygea Republic,South,1589
+Тюмень,Tyumen,6,Tyumen Oblast,Ural,2088
+Омск,Omsk,6,Omsk Oblast,Siberia,2704
+Сургут,Surgut,5,Khanty-Mansi Autonomous Okrug-Yugra,Ural,2887
+Новосибирск,Novosibirsk,7,Novosibirsk Oblast,Siberia,3360
+Томск,Tomsk,7,Tomsk Oblast,Siberia,3618
+Красноярск,Krasnoyarsk,7,Krasnoyarsk Krai,Siberia,4145
+Якутск,Yakutsk,9,Sakha Republic,Far East,8395
+no_city,Online store,NA,NA,NA,NA
