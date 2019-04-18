@@ -6,6 +6,61 @@ from sklearn.pipeline import Pipeline, make_pipeline, FeatureUnion
 from sklearn.base import TransformerMixin, BaseEstimator
 
 
+replacements = {'Accessories - PS2':'Accessories',
+       'Accessories - PS3':'Accessories', 'Accessories - PS4':'Accessories',
+       'Accessories - PSP':'Accessories','Accessories - PSVita':'Accessories',
+       'Accessories - XBOX 360':'Accessories', 'Accessories - XBOX ONE':'Accessories',
+       
+       'Game Consoles - PS2':'Game Consoles', 'Game Consoles - PS3':'Game Consoles',
+       'Game Consoles - PS4':'Game Consoles', 'Gaming Consoles - PSP':'Game Consoles',
+       'Game Consoles - PSVita':'Game Consoles', 'Gaming Consoles - XBOX 360':'Game Consoles',
+       'Gaming Consoles - XBOX ONE':'Game Consoles', 'Game Consoles - Other':'Game Consoles',
+                
+       'Games - PS2':'Games-digital', 'Games - PS3':'Games-digital', 'Games - PS4':'Games-digital',
+       'Games - PSP':'Games-digital', 'Games - PSVita':'Games-digital', 'Games - XBOX 360':'Games-digital',
+       'Games - XBOX ONE':'Games-digital',
+
+       'Games - Accessories for games': 'Game-Accessories',
+       'Android Games - Digital':'Android Games', 'MAC Games - Digit':'MAC Games', 
+       
+       'PC Games - Additional Editions':'PC Games',
+       'PC Games - Collectible Editions':'PC Games', 'PC Games - Standard Editions':'PC Games',
+       'PC Games - Digital':'PC Games',
+       'Payment cards (Cinema, Music, Games)':'Payment cards',
+       'Payment Cards - Live!':'Payment cards', 'Payment Cards - Live! (Numeral)':'Payment cards',
+       'Payment Cards - PSN':'Payment cards', 'Payment Cards - Windows (Digital)':'Payment cards',
+       
+       'Cinema - Blu-Ray':'Movies', 'The Movie - Blu-Ray 3D':'Movies',
+       'Cinema - Blu-Ray 4K':'Movies', 'Cinema - DVD':'Movies', 'Cinema - Collection':'Movies',
+       
+       'Books - Artbooks, encyclopedias':'Books', 'Books - Audiobooks':'Books',
+       'Books - Audiobooks (Figure)':'Books', 'Books - Audiobooks 1C':'Books',
+       'Books - Business Literature':'Books', 'Books - Comics, Manga':'Books',
+       'Books - Computer Literature':'Books', 'Books - Methodical materials 1C':'Books',
+       'Books - Postcards':'Books', 'Books - Cognitive Literature':'Books',         
+       'Книги - Путеводители':'Books', 'Books - Fiction':'Books', 'Books - The Figure':'Books',
+                
+       'Music - Local Production CD':'Music', 'Music - CD branded production':'Music',
+       'Music - MP3':'Music', 'Music - Vinyl':'Music', 'Music - Music Video':'Music',
+       'Music - Gift Edition':'Music',
+       
+       'Gifts - Attributes':'Gifts',
+       'Gifts - Gadgets, Robots, Sports':'Gifts', 'Gifts - Soft Toys':'Gifts',
+       'Gifts - Board Games':'Gifts', 'Gifts - Board Games (Compact)':'Gifts',
+       'Gifts - Cards, stickers':'Gifts', 'Gifts - Development':'Gifts',
+       'Gifts - Certificates, Services':'Gifts', 'Gifts - Souvenirs':'Gifts',
+       'Gifts - Souvenirs (in a hitch)':'Gifts',
+       'Gifts - Bags, Albums, Mouse pads':'Gifts', 'Gifts - Figures':'Gifts',
+                
+       'Programs - 1C: Enterprise 8':'Programs', 'Programs - MAC (Digit)':'Programs',
+       'Programs - Home and Office':'Programs',
+       'Programs - Home and Office (Digital)':'Programs', 'Programs - Educational':'Programs',
+       'Programs - Educational (Figure)':'Programs',
+       'Service Tickets':'Service',
+                
+       'Clean media (spire)':'Clean', 'Clean Media (Piece)':'Clean'}
+
+
 def get_dates_in_month(year, month, time_zone):
     num_days = monthrange(year, month)[1]
     first_date_of_month = datetime.datetime(year,month,1, tzinfo=time_zone)
