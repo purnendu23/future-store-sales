@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import OneHotEncoder, LabelBinarizer, FunctionTransformer, MinMaxScaler
-from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline, make_pipeline, FeatureUnion
 from sklearn.base import TransformerMixin, BaseEstimator
 
