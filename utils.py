@@ -239,3 +239,22 @@ class MinMaxScalerTransformer(BaseEstimator, TransformerMixin):
     def transform(self, X):
         arr = self.min_max_scalar.transform(X)
         return pd.DataFrame(arr, columns=list(X.columns))
+
+    
+    
+def nearest_smaller(x, arr):
+    if len(arr)>1:
+        mid = int(len(arr)/2)
+        if arr[mid] == x :
+            if mid-1>=0:
+                return arr[mid-1] 
+        elif (arr[mid]>x) :
+            return nearest_smaller(x, arr[:mid])
+        elif (arr[mid]<x):
+            return nearest_smaller(x, arr[mid:])
+        else:
+            return arr[mid] 
+    elif arr[0] < x:
+        return arr[0]
+    else:
+        return -1
