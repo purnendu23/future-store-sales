@@ -1,4 +1,5 @@
 from utils import nearest_smaller
+import numpy as np
 
 def lagged_shop_item_sales(train_test_set, lag):    
     feature_name = "shop_item_sales_lag" + str(lag)
