@@ -33,19 +33,6 @@ def lagged_item_price(train_test_set, lag):
     return train_test_set.merge(train_test_set_c, on=['item_id', 'date_block_num'], how='left').fillna(0)
     
 
-def months_from_lastsale_shop_item(data):
-    tmp = data[data.item_cnt_month>0].groupby(['shop_id', 'item_id']).agg(list_sale_months = ('date_block_num', list)).reset_index()
-    data = data.merge(tmp, on=['shop_id', 'item_id'], how='left')
-    data['lastsale_month_shop_item'] = \
-    data.apply(lambda row: nearest_smaller(row['date_block_num'], row['list_sale_months']) if row['list_sale_months'] is not np.NaN  else -1, axis=1 )
-
-    data['months_from_lastsale_shop_item'] = \
-    data.apply(lambda r: r['date_block_num']-r['lastsale_month_shop_item'] if r['lastsale_month_shop_item'] > -1 else -1, axis=1 )
-
-    data.drop(columns=['list_sale_months', 'lastsale_month_shop_item'], inplace= True)
-    return data
-
-
 def months_from_lastsale_item(data):
     tmp = data[data.item_cnt_month>0].groupby(['item_id']).agg(list_sale_months = ('date_block_num', set)).reset_index()
     tmp['list_sale_months'] = tmp['list_sale_months'].apply(list).apply(np.sort)
@@ -56,3 +43,17 @@ def months_from_lastsale_item(data):
     tmp.drop(columns=['lastsale_month', 'list_sale_months'], inplace = True)
     data = data.merge(tmp, on=['date_block_num','item_id'], how='left')
     return data
+
+
+def months_from_lastsale_shop_item(data):    
+    tmp = data[data.item_cnt_month>0].groupby(['shop_id', 'item_id']).agg(list_sale_months = ('date_block_num', list)).reset_index()
+    data = data.merge(tmp, on=['shop_id', 'item_id'], how='left')
+    data['lastsale_month_shop_item'] = \
+    data.apply(lambda row: nearest_smaller(row['date_block_num'], row['list_sale_months']) if row['list_sale_months'] is not np.NaN  else -1, axis=1 )
+
+    data['months_from_lastsale_shop_item'] = \
+    data.apply(lambda r: r['date_block_num']-r['lastsale_month_shop_item'] if r['lastsale_month_shop_item'] > -1 else -1, axis=1 )
+
+    data.drop(columns=['list_sale_months', 'lastsale_month_shop_item'], inplace= True)
+    return data
+ 
