@@ -2,7 +2,6 @@ from utils import nearest_smaller
 import numpy as np
 
 
-
 def lagged_shop_item_sales(train_test_set, lag):    
     feature_name = "shop_item_sales_lag" + str(lag)
     train_test_set_c = train_test_set[['shop_id', 'item_id', 'date_block_num', 'item_cnt_month']]
